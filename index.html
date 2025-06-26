@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <meta
+      name="keywords"
+      content="Tarboush, Egypt tours, Pyramids, Tutankhamun, Nile cruise"
+    />
+    <meta
+      name="description"
+      content="Discover Egypt with Tarboush - Professional tour guides for Pyramids, Luxor, Nile cruises and more"
+    />
+    <meta name="author" content="Tarboush Tours" />
+
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=AnubisMythicalSerif&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+
+    <style>
+      /* Global Styles */
+      :root {
+        --primary-color: #c19a5b;
+        --secondary-color: #1a1a1a;
+        --accent-color: #e6c27e;
+        --text-color: #333;
+        --light-bg: #f9f5ed;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        background-color: #f9f5ed;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+      }
+
+      /* Preloader */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--light-bg);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .preloader img {
+        width: 150px;
+        animation: pulse 1.5s infinite;
+      }
+
+      .preloader p {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+        animation: fadeIn 2s infinite alternate;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0.5;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Header Styles */
+      .header_section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        transition: all 0.5s ease;
+        z-index: 1000;
+        background: transparent;
+      }
+
+      .header_section.scrolled {
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .header_main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo img {
+        height: 3.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .logo:hover img {
+        transform: rotate(-5deg);
+      }
+
+      .menu_main ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu_main ul li {
+        margin: 0 10px;
+        position: relative;
+      }
+
+      .menu_main ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      .menu_main ul li a:hover {
+        color: var(--accent-color);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .menu_main ul li.active a {
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+
+      .menu_main ul li::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: all 0.3s ease;
+      }
+
+      .menu_main ul li:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile Menu */
+      .mobile_menu {
+        display: none;
+      }
+
+      .navbar-toggler {
+        border: none;
+        background: transparent;
+        color: white;
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .navbar-collapse {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px;
+        z-index: 999;
+        display: none;
+      }
+
+      .navbar-collapse.show {
+        display: block;
+        animation: fadeInDown 0.5s ease;
+      }
+
+      .navbar-nav {
+        flex-direction: column;
+        list-style: none;
+      }
+
+      .nav-item {
+        margin: 10px 0;
+      }
+
+      .nav-link {
+        color: white !important;
+        font-size: 1.2rem;
+        padding: 10px 15px !important;
+        display: block;
+        text-decoration: none;
+      }
+
+      /* Banner Section */
+      .banner_section {
+        height: 100vh;
+        min-height: 600px;
+        background: url("images/Banner.gif") no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .banner_section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .banner_text {
+        position: relative;
+        z-index: 2;
+        color: white;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 20px;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 1.5s ease 0.5s forwards;
+      }
+
+      .banner_taital {
+        font-family: "AnubisMythicalSerif", serif;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        color: var(--accent-color);
+      }
+
+      .banner_text_1 {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .banner_text_1 span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .banner_text_1 span:nth-child(1) {
+        animation: fadeInUp 0.8s ease 1s forwards;
+      }
+
+      .banner_text_1 span:nth-child(2) {
+        animation: fadeInUp 0.8s ease 1.5s forwards;
+      }
+
+      .banner_text_1 span:nth-child(3) {
+        animation: fadeInUp 0.8s ease 2s forwards;
+      }
+
+      .read_bt a {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .read_bt a:hover {
+        background: var(--accent-color);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .read_bt a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: all 0.6s ease;
+      }
+
+      .read_bt a:hover::after {
+        left: 100%;
+      }
+
+      /* Main Content Sections */
+      .section {
+        padding: 60px 0;
+        position: relative;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-title {
+        font-family: "AnubisMythicalSerif", serif;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: var(--secondary-color);
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--primary-color);
+      }
+
+      /* Worlds Section */
+      .worlds-section {
+        background-color: var(--light-bg);
+      }
+
+      .world-item {
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .world-image {
+        width: 100%;
+        padding: 15px;
+        position: relative;
+      }
+
+      .world-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: all 0.5s ease;
+      }
+
+      .world-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .world-content {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .world-title {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .world-description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .world-button {
+        display: inline-block;
+        padding: 10px 25px;
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid var(--primary-color);
+      }
+
+      .world-button:hover {
+        background: transparent;
+        color: var(--primary-color);
+      }
+
+      /* About Section */
+      .about-section {
+        background: white;
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .about-text {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .about-image {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: rotate(-2deg) scale(1.03);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+        height: 100%;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      /* Testimonial Section */
+      .testimonial-section {
+        background-color: var(--light-bg);
+      }
+
+      .testimonial-slider {
+        margin-bottom: 30px;
+      }
+
+      .testimonial-slide {
+        text-align: center;
+        padding: 15px;
+      }
+
+      .testimonial-slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+      }
+
+      .testimonial-slide:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .testimonial-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.5s ease;
+        position: relative;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 15px;
+        position: relative;
+        font-size: 0.95rem;
+      }
+
+      .testimonial-text::before,
+      .testimonial-text::after {
+        content: '"';
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        opacity: 0.3;
+        position: absolute;
+      }
+
+      .testimonial-text::before {
+        top: -10px;
+        left: -5px;
+      }
+
+      .testimonial-text::after {
+        bottom: -20px;
+        right: -5px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+        border: 3px solid var(--primary-color);
+      }
+
+      .author-name {
+        font-weight: 700;
+        color: var(--secondary-color);
+        font-size: 0.95rem;
+      }
+
+      /* TikTok Section */
+      .tiktok-section {
+        padding: 30px 0;
+      }
+
+      .tiktok-slider {
+        padding: 20px 0;
+      }
+
+      .tiktok-slide {
+        padding: 10px;
+        transition: all 0.5s ease;
+      }
+
+      .tiktok-slide:hover {
+        transform: scale(1.03);
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: white;
+      }
+
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-button {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #25d366;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #1da851;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      }
+
+      .whatsapp-btn img {
+        width: 24px;
+        margin-right: 10px;
+      }
+
+      .map-container {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .map-image {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+        filter: brightness(90%);
+      }
+
+      .map-image:hover {
+        filter: brightness(100%);
+        transform: scale(1.02);
+      }
+
+      /* Footer Section */
+      .luxury-footer {
+        background: linear-gradient(135deg, #0a2e38 0%, #1a4b5a 100%);
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+        padding: 40px 0 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .luxury-footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("images/egypt-pattern.png") center/cover;
+        opacity: 0.05;
+        z-index: 0;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-heading {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
+        color: #f0c14b;
+      }
+
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, #f0c14b, transparent);
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #d1d1d1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: #f0c14b;
+        padding-left: 5px;
+      }
+
+      .contact-info {
+        margin-top: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+      }
+
+      .contact-item i {
+        margin-right: 10px;
+        color: #f0c14b;
+        width: 20px;
+        text-align: center;
+      }
+
+      .footer-middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .social-media h4,
+      .newsletter h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 25px;
+      }
+
+      .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+      }
+
+      .social-icons a:hover {
+        background: #f0c14b;
+        transform: translateY(-3px);
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .newsletter-form input {
+        padding: 12px 15px;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .newsletter-form button {
+        background: #f0c14b;
+        color: #1a4b5a;
+        border: none;
+        padding: 12px 20px;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .newsletter-form button:hover {
+        background: #e2b43b;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.8rem;
+        color: #a1a1a1;
+        text-align: center;
+      }
+
+      .payment-methods {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .payment-methods img {
+        height: 20px;
+        filter: grayscale(100%) brightness(150%);
+        transition: all 0.3s ease;
+      }
+
+      .payment-methods img:hover {
+        filter: none;
+      }
+
+      /* Scroll to Top Button */
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #ff4ecd, #6a5af9);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 999;
+        display: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #scrollTopBtn:hover {
+        transform: scale(1.1);
+      }
+
+      #scrollTopBtn svg {
+        width: 20px;
+        height: 20px;
+        stroke: white;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 991.98px) {
+        .menu_main {
+          display: none;
+        }
+
+        .mobile_menu {
+          display: block;
+        }
+      }
+
+      @media (min-width: 576px) {
+        .banner_taital {
+          font-size: 4rem;
+        }
+
+        .banner_text_1 {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 3rem;
+        }
+
+        .gallery {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .header_main {
+          padding: 0 30px;
+        }
+
+        .menu_main ul li {
+          margin: 0 15px;
+        }
+
+        .menu_main ul li a {
+          font-size: 1.1rem;
+        }
+
+        .section {
+          padding: 80px 0;
+        }
+
+        .world-item {
+          flex-direction: row;
+          margin-bottom: 70px;
+        }
+
+        .world-item:nth-child(even) .world-image {
+          order: 2;
+        }
+
+        .world-item:nth-child(even) .world-content {
+          order: 1;
+          text-align: right;
+        }
+
+        .world-content {
+          text-align: left;
+          padding: 20px;
+        }
+
+        .world-title {
+          font-size: 2rem;
+        }
+
+        .world-description {
+          font-size: 1.1rem;
+        }
+
+        .about-content {
+          flex-direction: row;
+        }
+
+        .about-text {
+          text-align: left;
+          padding: 20px;
+        }
+
+        .testimonial-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-top {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-middle {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+
+        .social-media {
+          text-align: left;
+        }
+
+        .newsletter {
+          text-align: right;
+        }
+
+        .newsletter-form {
+          flex-direction: row;
+        }
+
+        .newsletter-form input {
+          margin-bottom: 0;
+          border-radius: 4px 0 0 4px;
+          width: 200px;
+        }
+
+        .newsletter-form button {
+          width: auto;
+          border-radius: 0 4px 4px 0;
+        }
+
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          text-align: left;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .banner_taital {
+          font-size: 5rem;
+        }
+
+        .section-title {
+          font-size: 3.5rem;
+        }
+
+        .testimonial-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-top {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .contact-container {
+          flex-direction: row;
+        }
+
+        .contact-button {
+          margin-bottom: 0;
+        }
+
+        #scrollTopBtn {
+          width: 50px;
+          height: 50px;
+          bottom: 30px;
+          right: 30px;
+        }
+
+        #scrollTopBtn svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .world-item {
+          margin-bottom: 80px;
+        }
+
+        .gallery {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <img src="images/logo.png" alt="Tarboush Logo" />
+      <p>Loading the wonders of Egypt...</p>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header_section">
+      <div class="header_main">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="images/logo.png" alt="Tarboush Logo"
+          /></a>
+        </div>
+
+        <div class="menu_main">
+          <ul>
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="mobile_menu">
+          <button class="navbar-toggler" type="button">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#testimonials">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banner_section" id="home">
+      <div class="banner_text">
+        <h1 class="banner_taital">Tarboush</h1>
+        <p class="banner_text_1">
+          <span>🌍 Discover the Heart of Egypt Like Never Before!</span>
+          <br />
+          <span>✨ Join Us on a Journey Through Time and Culture!</span>
+          <br />
+          ✨ Let the adventure begin — explore, experience, and fall in love
+          with the timeless charm of our land.
+        </p>
+        <div class="read_bt"><a href="#contact">Join Us Now</a></div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="p-3 p-md-5">
+      <div class="container">
+        <!-- Worlds Section -->
+        <section class="section worlds-section" id="worlds">
+          <div class="container">
+            <h2 class="section-title">01<br />Our Worlds</h2>
+
+            <div class="world-item">
+              <div class="world-image">
+                <img src="images/img-1.png" alt="Tutankhamun" loading="lazy" />
+              </div>
+              <div class="world-content">
+                <h3 class="world-title">🏛️ Tutankhamun</h3>
+                <p class="world-description">
+                  Tutankhamun was a young Egyptian pharaoh from the 18th
+                  Dynasty, who ruled around 1332–1323 BC.
+                  <br /><br />
+                  His tomb (KV62) was discovered in 1922 in the Valley of the
+                  Kings, Luxor, filled with treasures like his famous golden
+                  mask and solid gold coffin.
+                  <br /><br />
+                  It's one of the greatest archaeological finds in history.
+                  <br /><br />
+                  📍 Location: Valley of the Kings, West Bank, Luxor, Egypt
+                </p>
+                <a href="#contact" class="world-button">See Now</a>
+              </div>
+            </div>
+
+            <div class="world-item">
+              <div class="world-image">
+                <img
+                  src="images/img-2.png"
+                  alt="Pyramids of Giza"
+                  loading="lazy"
+                />
+              </div>
+              <div class="world-content">
+                <h3 class="world-title">🏛️ The Pyramids of Egypt</h3>
+                <p class="world-description">
+                  The Pyramids of Giza are among the most iconic monuments in
+                  the world. Built over 4,500 years ago, they served as royal
+                  tombs for the pharaohs of ancient Egypt.
+                  <br /><br />
+                  The largest, the Great Pyramid of Khufu, is the only remaining
+                  wonder of the ancient world.
+                  <br /><br />
+                  📍 Location: Giza Plateau, near Cairo, Egypt
+                  <br /><br />
+                  These pyramids showcase the advanced engineering, astronomy,
+                  and power of ancient Egyptian civilization.
+                </p>
+                <a href="#contact" class="world-button">See Now</a>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px">
+              <a href="#contact" class="world-button" style="padding: 12px 30px"
+                >Join Us Now</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about-section" id="about">
+          <div class="container">
+            <h2 class="section-title">02<br />About Tour Guide</h2>
+
+            <div class="about-content">
+              <div class="about-text">
+                <p style="line-height: 1.8; font-size: 1.1rem">
+                  Discover Egypt like a local with our expert tour guides!
+                  <br /><br />
+                  Whether you're exploring ancient pyramids, majestic temples,
+                  or bustling markets, our knowledgeable guides bring history to
+                  life with fascinating stories and insider tips.
+                  <br /><br />
+                  Personalized, friendly, and professional, they ensure your
+                  journey is smooth, memorable, and full of authentic
+                  experiences.
+                  <br /><br />
+                  Let us show you the hidden gems and iconic landmarks that make
+                  Egypt truly unforgettable!
+                </p>
+                <div style="margin-top: 20px">
+                  <a href="#contact" class="world-button">Join Us Now</a>
+                </div>
+              </div>
+              <div class="about-image">
+                <img src="images/img-3.png" alt="Tour Guide" loading="lazy" />
+              </div>
+            </div>
+
+            <div class="gallery">
+              <div class="gallery-item">
+                <img
+                  src="images/img-4.png"
+                  alt="Gallery Image 1"
+                  loading="lazy"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="images/img-5.png"
+                  alt="Gallery Image 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="images/img-6.png"
+                  alt="Gallery Image 3"
+                  loading="lazy"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="images/img-7.png"
+                  alt="Gallery Image 4"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="section testimonial-section" id="testimonials">
+          <div class="container">
+            <h2 class="section-title">03<br />Testimonials</h2>
+
+            <!-- Testimonial Slider -->
+            <div class="testimonial-slider swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/1.png"
+                    alt="Client 1"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/2.png"
+                    alt="Client 2"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/3.png"
+                    alt="Client 3"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/4.png"
+                    alt="Client 4"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/5.png"
+                    alt="Client 5"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/6.png"
+                    alt="Client 6"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/7.png"
+                    alt="Client 7"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/8.png"
+                    alt="Client 8"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/9.png"
+                    alt="Client 9"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/10.png"
+                    alt="Client 10"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/11.png"
+                    alt="Client 11"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/12.png"
+                    alt="Client 12"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/13.png"
+                    alt="Client 13"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/14.png"
+                    alt="Client 14"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/15.png"
+                    alt="Client 15"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/16.png"
+                    alt="Client 16"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/17.png"
+                    alt="Client 17"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/18.png"
+                    alt="Client 18"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/19.png"
+                    alt="Client 19"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/20.png"
+                    alt="Client 20"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/21.png"
+                    alt="Client 21"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/22.png"
+                    alt="Client 22"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/23.png"
+                    alt="Client 23"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/24.png"
+                    alt="Client 24"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/25.png"
+                    alt="Client 25"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/26.png"
+                    alt="Client 26"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/27.png"
+                    alt="Client 27"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/28.png"
+                    alt="Client 28"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/29.png"
+                    alt="Client 29"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/30.png"
+                    alt="Client 30"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/31.png"
+                    alt="Client 31"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/32.png"
+                    alt="Client 32"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/33.png"
+                    alt="Client 33"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/34.png"
+                    alt="Client 34"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/35.png"
+                    alt="Client 35"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/36.png"
+                    alt="Client 36"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/37.png"
+                    alt="Client 37"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/38.png"
+                    alt="Client 38"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/39.png"
+                    alt="Client 39"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="swiper-slide testimonial-slide">
+                  <img
+                    src="images/clients/40.png"
+                    alt="Client 40"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Testimonial Cards -->
+            <div class="testimonial-grid">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  Amazing experience with Tarboush! The guides were professional
+                  and passionate about Egyptian history. They kept our group
+                  engaged with fascinating stories and made every moment
+                  special. Definitely booking again!
+                </p>
+                <div class="testimonial-author">
+                  <img src="images/client-img.png" alt="Jamesh Dame" />
+                  <div class="author-name">Jamesh Dame</div>
+                </div>
+              </div>
+
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  Tarboush made our trip to Egypt unforgettable! Our guide was
+                  knowledgeable, friendly, and showed us hidden spots that we
+                  never would have found on our own. Highly recommend for anyone
+                  wanting a real local experience!
+                </p>
+                <div class="testimonial-author">
+                  <img src="images/client-img1.png" alt="Jumini Kiri" />
+                  <div class="author-name">Jumini Kiri</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TikTok Section -->
+            <div class="tiktok-section">
+              <div class="tiktok-slider swiper tiktokSwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide tiktok-slide">
+                    <blockquote
+                      class="tiktok-embed"
+                      cite="https://www.tiktok.com/@egyptguide0/video/7495490451953224967"
+                      data-video-id="7495490451953224967"
+                      style="width: 100%; min-width: 300px"
+                    >
+                      <section>Loading...</section>
+                    </blockquote>
+                  </div>
+
+                  <div class="swiper-slide tiktok-slide">
+                    <blockquote
+                      class="tiktok-embed"
+                      cite="https://www.tiktok.com/@egyptguide0/video/7501060490135670034"
+                      data-video-id="7501060490135670034"
+                      style="width: 100%; min-width: 300px"
+                    >
+                      <section>Loading...</section>
+                    </blockquote>
+                  </div>
+
+                  <div class="swiper-slide tiktok-slide">
+                    <blockquote
+                      class="tiktok-embed"
+                      cite="https://www.tiktok.com/@egyptguide0/video/7499818766046416146"
+                      data-video-id="7499818766046416146"
+                      style="max-width: 605px; min-width: 325px"
+                    >
+                      <section>
+                        <a
+                          target="_blank"
+                          title="@egyptguide0"
+                          href="https://www.tiktok.com/@egyptguide0?refer=embed"
+                          >@egyptguide0</a
+                        >
+                        Sailing the Nile this May — ancient temples, golden
+                        sunsets, and stories that come alive on the water. Egypt
+                        like you've never seen it.
+                        <a
+                          title="nileadventures"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/nileadventures?refer=embed"
+                          >#NileAdventures</a
+                        >
+                        <a
+                          title="mayinegypt"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/mayinegypt?refer=embed"
+                          >#MayInEgypt</a
+                        >
+                        <a
+                          title="egypttravel"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/egypttravel?refer=embed"
+                          >#EgyptTravel</a
+                        >
+                        <a
+                          title="tourwithme"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/tourwithme?refer=embed"
+                          >#TourWithMe</a
+                        >
+                        <a
+                          title="hiddenegypt"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/hiddenegypt?refer=embed"
+                          >#HiddenEgypt</a
+                        ><a
+                          title="capcut"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/capcut?refer=embed"
+                          >#CapCut</a
+                        >
+                        <a
+                          target="_blank"
+                          title="♬ River Flows in you - LKAxelrod & 花凯"
+                          href="https://www.tiktok.com/music/River-Flows-in-you-7437415642691012625?refer=embed"
+                          >♬ River Flows in you - LKAxelrod & 花凯</a
+                        >
+                      </section>
+                    </blockquote>
+                  </div>
+
+                  <div class="swiper-slide tiktok-slide">
+                    <blockquote
+                      class="tiktok-embed"
+                      cite="https://www.tiktok.com/@egyptguide0/video/7499146384860466450"
+                      data-video-id="7499146384860466450"
+                      style="max-width: 605px; min-width: 325px"
+                    >
+                      <section>
+                        <a
+                          target="_blank"
+                          title="@egyptguide0"
+                          href="https://www.tiktok.com/@egyptguide0?refer=embed"
+                          >@egyptguide0</a
+                        >
+                        POV: You're exploring Egypt in April with a local guide
+                        — pyramids, hidden gems, and real stories they don't
+                        tell you in history books!
+                        <a
+                          title="egypttravel"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/egypttravel?refer=embed"
+                          >#EgyptTravel</a
+                        >
+                        <a
+                          title="tourwithme"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/tourwithme?refer=embed"
+                          >#TourWithMe</a
+                        >
+                        <a
+                          title="hiddenegypt"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/hiddenegypt?refer=embed"
+                          >#HiddenEgypt</a
+                        >
+                        <a
+                          title="apriladventures"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/apriladventures?refer=embed"
+                          >#AprilAdventures</a
+                        >
+                        <a
+                          title="pyramids"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/pyramids?refer=embed"
+                          >#Pyramids</a
+                        >
+                        <a
+                          title="capcut"
+                          target="_blank"
+                          href="https://www.tiktok.com/tag/capcut?refer=embed"
+                          >#CapCut</a
+                        >
+                        <a
+                          target="_blank"
+                          title="♬ original sound - Bin Waseem Associates"
+                          href="https://www.tiktok.com/music/original-sound-7496407652122692374?refer=embed"
+                          >♬ original sound - Bin Waseem Associates</a
+                        >
+                      </section>
+                    </blockquote>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+          <div class="container">
+            <h2 class="section-title">04<br />Get In Touch</h2>
+
+            <div class="contact-container">
+              <div class="contact-button">
+                <a
+                  href="https://wa.me/201027073510?text=Hello%20I%20am%20interested%20in%20your%20tour%20services"
+                  class="whatsapp-btn"
+                  target="_blank"
+                >
+                  <img
+                    src="images/whatsapp-logo-png_seeklogo-168310.png"
+                    alt="WhatsApp"
+                  />
+                  Chat with us on WhatsApp
+                </a>
+              </div>
+              <div class="map-container">
+                <img
+                  src="images/map-img.png"
+                  alt="Map"
+                  class="map-image"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="luxury-footer">
+      <div class="footer-container">
+        <!-- Top section with quick links -->
+        <div class="footer-top">
+          <div class="footer-column">
+            <h3 class="footer-heading">Explore Egypt</h3>
+            <ul class="footer-links">
+              <li><a href="#">Pyramids & Sphinx</a></li>
+              <li><a href="#">Luxor & Aswan</a></li>
+              <li><a href="#">Red Sea Resorts</a></li>
+              <li><a href="#">Siwa Oasis</a></li>
+              <li><a href="#">Islamic Cairo</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-heading">Travel Services</h3>
+            <ul class="footer-links">
+              <li><a href="#">Luxury Nile Cruises</a></li>
+              <li><a href="#">Private Tours</a></li>
+              <li><a href="#">Desert Safaris</a></li>
+              <li><a href="#">VIP Airport Services</a></li>
+              <li><a href="#">Boutique Hotels</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-heading">Company</h3>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Travel Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-heading">Contact Us</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Nile Corniche, Cairo, Egypt</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+20 1027073510</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>info@tarboush.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle section with social media and newsletter -->
+        <div class="footer-middle">
+          <div class="social-media">
+            <h4>Follow Our Journey</h4>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/ahmed.eid.450226?rdid=AURF2XWFH7JBNcLa&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16cPbimKSG%2F"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://www.instagram.com/eid5644#/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.tiktok.com/@egyptguide0"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom section with copyright and payment methods -->
+        <div class="footer-bottom">
+          <div class="copyright">
+            &copy; Made by
+            <a
+              style="color: violet"
+              href="https://www.softcodedevelop.com/"
+              target="_blank"
+              >SoftCode</a
+            >. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Back to Top">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <script>
+      // Preloader - Reduced loading time to 2 seconds
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.querySelector(".preloader").style.opacity = "0";
+          setTimeout(function () {
+            document.querySelector(".preloader").style.display = "none";
+          }, 100);
+        }, 0); // Reduced from 15-20 seconds to 2 seconds
+      });
+
+      // Header Scroll Effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header_section");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile Menu Toggle
+      document
+        .querySelector(".navbar-toggler")
+        .addEventListener("click", function () {
+          document.querySelector(".navbar-collapse").classList.toggle("show");
+        });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.querySelector(".navbar-collapse").classList.remove("show");
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", function (event) {
+        const mobileMenu = document.querySelector(".mobile_menu");
+        const navbarToggler = document.querySelector(".navbar-toggler");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
+        if (
+          !mobileMenu.contains(event.target) &&
+          navbarCollapse.classList.contains("show")
+        ) {
+          navbarCollapse.classList.remove("show");
+        }
+      });
+
+      // Section Scroll Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".section");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+
+        // Initialize Swipers
+        const testimonialSwiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+          },
+        });
+
+        const tiktokSwiper = new Swiper(".tiktokSwiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+          },
+          on: {
+            slideChangeTransitionEnd: function () {
+              if (typeof window.tiktokEmbedLoad === "function") {
+                window.tiktokEmbedLoad();
+              }
+            },
+          },
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+
+      // Scroll to Top Button
+      window.onscroll = function () {
+        const btn = document.getElementById("scrollTopBtn");
+        if (
+          document.body.scrollTop > 200 ||
+          document.documentElement.scrollTop > 200
+        ) {
+          btn.style.display = "flex";
+        } else {
+          btn.style.display = "none";
+        }
+      };
+
+      document
+        .getElementById("scrollTopBtn")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
