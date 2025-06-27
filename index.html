@@ -10,11 +10,11 @@
     />
     <meta
       name="keywords"
-      content="Tarboush, Egypt tours, Pyramids, Tutankhamun, Nile cruise"
+      content="Tarboush, Egypt tours, Pyramids, Tutankhamun, Nile cruise, travel in egypt,egypt,Discover Egypt"
     />
     <meta
       name="description"
-      content="Discover Egypt with Tarboush - Professional tour guides for Pyramids, Luxor, Nile cruises and more"
+      content="Discover Egypt with Tarboush - Professional tour guides for Pyramids, Luxor, Nile cruises and more, travel in egypt,egypt,Discover Egypt"
     />
     <meta name="author" content="Tarboush Tours" />
 
@@ -80,6 +80,34 @@
         line-height: 1.6;
       }
 
+      /* Sand Particle Effect */
+      .sand-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      .sand-particle {
+        position: absolute;
+        background-color: #f9a202;
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: sand-fall linear infinite;
+      }
+
+      @keyframes sand-fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
       /* Preloader */
       .preloader {
         position: fixed;
@@ -108,14 +136,12 @@
       }
 
       @keyframes pulse {
-        0% {
+        0%,
+        100% {
           transform: scale(1);
         }
         50% {
           transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
         }
       }
 
@@ -415,6 +441,14 @@
         width: 100%;
         padding: 15px;
         position: relative;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.8s ease;
+      }
+
+      .world-item.visible .world-image {
+        opacity: 1;
+        transform: translateX(0);
       }
 
       .world-image img {
@@ -432,6 +466,14 @@
         width: 100%;
         padding: 15px;
         text-align: center;
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: all 0.8s ease;
+      }
+
+      .world-item.visible .world-content {
+        opacity: 1;
+        transform: translateX(0);
       }
 
       .world-title {
@@ -480,11 +522,27 @@
         width: 100%;
         padding: 15px;
         text-align: center;
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: all 0.8s ease;
+      }
+
+      .about-section.visible .about-text {
+        opacity: 1;
+        transform: translateX(0);
       }
 
       .about-image {
         width: 100%;
         padding: 15px;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.8s ease;
+      }
+
+      .about-section.visible .about-image {
+        opacity: 1;
+        transform: translateX(0);
       }
 
       .about-image img {
@@ -511,6 +569,27 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         transition: all 0.5s ease;
         height: 100%;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .about-section.visible .gallery-item {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gallery-item:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .gallery-item:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .gallery-item:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .gallery-item:nth-child(4) {
+        transition-delay: 0.4s;
       }
 
       .gallery-item:hover {
@@ -570,6 +649,21 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         transition: all 0.5s ease;
         position: relative;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .testimonial-section.visible .testimonial-card {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .testimonial-card:nth-child(1) {
+        transition-delay: 0.2s;
+      }
+      .testimonial-card:nth-child(2) {
+        transition-delay: 0.4s;
       }
 
       .testimonial-card:hover {
@@ -601,6 +695,12 @@
       .testimonial-text::after {
         bottom: -20px;
         right: -5px;
+      }
+
+      .star-rating {
+        color: #ffd700;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
       }
 
       .testimonial-author {
@@ -1143,9 +1243,108 @@
           grid-template-columns: repeat(4, 1fr);
         }
       }
+      .holo-animation {
+        display: flex;
+        justify-content: end; /* تمركز لليسار */
+        align-items: center;
+        padding: 20px;
+        height: 100px;
+      }
+
+      .holo-animation img {
+        height: 250px;
+        object-fit: contain;
+        filter: brightness(1) contrast(1.1);
+        transition: transform 0.3s ease;
+      }
+
+      .holo-animation img:hover {
+        transform: scale(1.03);
+        filter: brightness(1.1) contrast(1.2);
+      }
+
+      .camel-animation {
+        position: relative;
+        height: 110px;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+
+      .camel-animation img {
+        position: absolute;
+        height: 110px;
+        animation: moveCamel 11s linear infinite;
+      }
+
+      @keyframes moveCamel {
+        0% {
+          left: -100px;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .tour-packages-section {
+        background-color: #f7f7f7;
+        padding: 40px 20px;
+        border-radius: 12px;
+        text-align: center;
+        color: #333;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .tour-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      .tour-packages-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin-bottom: 30px;
+      }
+
+      .tour-packages-list li {
+        margin: 10px 0;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .cta-text {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #444;
+      }
+
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: #25d366;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .whatsapp-btn img {
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #1ebe5d;
+      }
     </style>
   </head>
   <body>
+    <!-- Sand Particle Effect -->
+    <div class="sand-particles" id="sandParticles"></div>
+
     <!-- Preloader -->
     <div class="preloader">
       <img src="images/logo.png" alt="Tarboush Logo" />
@@ -1199,7 +1398,7 @@
     <section class="banner_section" id="home">
       <div class="banner_text">
         <h1 class="banner_taital">Tarboush</h1>
-        <p class="banner_text_1">
+        <p class="banner_text_1" id="typewriterText">
           <span>🌍 Discover the Heart of Egypt Like Never Before!</span>
           <br />
           <span>✨ Join Us on a Journey Through Time and Culture!</span>
@@ -1237,6 +1436,10 @@
                   <br /><br />
                   📍 Location: Valley of the Kings, West Bank, Luxor, Egypt
                 </p>
+                <div class="camel-animation">
+                  <img src="images/camel.png" alt="Walking Camel" />
+                </div>
+
                 <a href="#contact" class="world-button">See Now</a>
               </div>
             </div>
@@ -1264,7 +1467,9 @@
                   These pyramids showcase the advanced engineering, astronomy,
                   and power of ancient Egyptian civilization.
                 </p>
-                <a href="#contact" class="world-button">See Now</a>
+                <div class="holo-animation">
+                  <img src="images/holo.png" alt="Walking Camel" />
+                </div>
               </div>
             </div>
 
@@ -1642,6 +1847,13 @@
                   engaged with fascinating stories and made every moment
                   special. Definitely booking again!
                 </p>
+                <div class="star-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
                 <div class="testimonial-author">
                   <img src="images/client-img.png" alt="Jamesh Dame" />
                   <div class="author-name">Jamesh Dame</div>
@@ -1655,6 +1867,13 @@
                   never would have found on our own. Highly recommend for anyone
                   wanting a real local experience!
                 </p>
+                <div class="star-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
                 <div class="testimonial-author">
                   <img src="images/client-img1.png" alt="Jumini Kiri" />
                   <div class="author-name">Jumini Kiri</div>
@@ -1822,30 +2041,83 @@
 
         <!-- Contact Section -->
         <section class="section contact-section" id="contact">
-          <div class="container">
+          <div style="text-align: center; position: relative; bottom: 10rem">
+            <img style="width: 10rem" src="images/Logo.png" alt="" />
+          </div>
+          <div class="container" style="position: relative; bottom: 6rem">
             <h2 class="section-title">04<br />Get In Touch</h2>
 
             <div class="contact-container">
-              <div class="contact-button">
-                <a
-                  href="https://wa.me/201027073510?text=Hello%20I%20am%20interested%20in%20your%20tour%20services"
-                  class="whatsapp-btn"
-                  target="_blank"
-                >
-                  <img
-                    src="images/whatsapp-logo-png_seeklogo-168310.png"
-                    alt="WhatsApp"
-                  />
-                  Chat with us on WhatsApp
-                </a>
-              </div>
-              <div class="map-container">
-                <img
-                  src="images/map-img.png"
-                  alt="Map"
-                  class="map-image"
-                  loading="lazy"
-                />
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="tour-packages-section">
+                        <h2 class="tour-title">✈️ Our Egypt Tour Packages</h2>
+
+                        <ul class="tour-packages-list">
+                          <li>
+                            <strong>1 Day Tour:</strong> Quick escape to the
+                            highlights of Cairo and Giza.
+                          </li>
+                          <li>
+                            <strong>3 Day Package:</strong> A perfect mix of
+                            pyramids, museums, and the Nile.
+                          </li>
+                          <li>
+                            <strong>9 Day Adventure:</strong> Full Egypt
+                            experience with desert, temples & cruise.
+                          </li>
+                          <li>
+                            <strong>VIP Package:</strong> Private tours, 5-star
+                            hotels, and luxury transport.
+                          </li>
+                          <li>
+                            <strong>Custom Package:</strong> Build your own tour
+                            – your plan, your pace!
+                          </li>
+                        </ul>
+
+                        <div class="contact-button">
+                          <p class="cta-text">
+                            🧳 Package your bags and get ready to explore the
+                            wonders of Egypt with us!
+                          </p>
+                          <a
+                            href="https://wa.me/201027073510?text=Hello%20I%20am%20interested%20in%20your%20tour%20services"
+                            class="whatsapp-btn"
+                            target="_blank"
+                          >
+                            <img
+                              src="images/whatsapp-logo-png_seeklogo-168310.png"
+                              alt="WhatsApp"
+                            />
+                            Chat with us on WhatsApp
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="row">
+                      <div class="map-container">
+                        <img
+                          src="images/map-img.png"
+                          alt="Map"
+                          class="map-image"
+                          loading="lazy"
+                        />
+                        <img
+                          style="margin-top: 2rem"
+                          src="images/Untitled design.png"
+                          alt="Map"
+                          class="map-image"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1930,7 +2202,7 @@
         </div>
 
         <!-- Bottom section with copyright and payment methods -->
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="justify-content: center">
           <div class="copyright">
             &copy; Made by
             <a
@@ -1963,6 +2235,37 @@
     <script async src="https://www.tiktok.com/embed.js"></script>
 
     <script>
+      // Sand Particle Effect
+      function createSandParticles() {
+        const container = document.getElementById("sandParticles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("sand-particle");
+
+          // Random size between 1px and 3px
+          const size = Math.random() * 2 + 3;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+
+          // Random position
+          particle.style.left = `${Math.random() * 100}%`;
+
+          // Random animation duration between 5s and 15s
+          const duration = Math.random() * 10 + 1;
+          particle.style.animationDuration = `${duration}s`;
+
+          // Random delay
+          particle.style.animationDelay = `${Math.random() * 5}s`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      // Initialize sand particles
+      createSandParticles();
+
       // Preloader - Reduced loading time to 2 seconds
       window.addEventListener("load", function () {
         setTimeout(function () {
@@ -2014,6 +2317,7 @@
       // Section Scroll Animation
       document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".section");
+        const worldItems = document.querySelectorAll(".world-item");
 
         const observer = new IntersectionObserver(
           (entries) => {
@@ -2026,8 +2330,23 @@
           { threshold: 0.1 }
         );
 
+        const worldObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
         sections.forEach((section) => {
           observer.observe(section);
+        });
+
+        worldItems.forEach((item) => {
+          worldObserver.observe(item);
         });
 
         // Initialize Swipers
