@@ -17,16 +17,18 @@
       content="Discover Egypt with Tarboush - Professional tour guides for Pyramids, Luxor, Nile cruises and more, travel in egypt,egypt,Discover Egypt"
     />
     <meta name="author" content="Tarboush Tours" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
-    />
+    /> -->
 
     <!-- Fonts -->
     <link
@@ -1339,6 +1341,1105 @@
       .whatsapp-btn:hover {
         background-color: #1ebe5d;
       }
+      h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #7f8c8d;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .carousel-container {
+            position: relative;
+            margin: 60px 0;
+            perspective: 1000px;
+            overflow: hidden; /* Added to hide items outside visible area */
+        }
+
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            height: 300px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 220px;
+            height: 280px;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            backface-visibility: hidden;
+            /* Hide items that are far from center */
+            visibility: hidden;
+        }
+
+        /* Show only items near the center */
+        .carousel-item[data-index="0"],
+        .carousel-item[data-index="1"],
+        .carousel-item[data-index="2"],
+        .carousel-item[data-index="3"],
+        .carousel-item[data-index="4"] {
+            visibility: visible;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .carousel-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .carousel-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            font-weight: 600;
+        }
+
+        .carousel-content p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #bdc3c7;
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: #e67e22;
+            transform: scale(1.3);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .carousel-arrow:hover {
+            background-color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .carousel-arrow.left {
+            left: -70px;
+        }
+
+        .carousel-arrow.right {
+            right: -70px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 500px;
+            animation: modalFadeIn 0.5s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
+
+        .modal-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .booking-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .booking-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(41, 128, 185, 0.3);
+        }
+
+        .booking-btn.luxury {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        }
+
+        .booking-btn i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        .booking-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(41, 128, 185, 0.4);
+        }
+
+        .booking-btn.luxury:hover {
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
+        }
+
+        .destination-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Sponsored section */
+        .sponsored {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sponsored-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .sponsored-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sponsored-text {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .sponsored-text p {
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        .sponsored-text p:first-child {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            .carousel-item {
+                width: 200px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .carousel-item {
+                width: 180px;
+                height: 230px;
+            }
+            
+            .carousel-arrow.left {
+                left: -50px;
+            }
+            
+            .carousel-arrow.right {
+                right: -50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-track {
+                height: 250px;
+            }
+            
+            .carousel-item {
+                width: 160px;
+                height: 200px;
+            }
+            
+            .carousel-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .carousel-arrow.left {
+                left: -30px;
+            }
+            
+            .carousel-arrow.right {
+                right: -30px;
+            }
+            
+            .sponsored-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .sponsored-avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .sponsored-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem;
+            }
+            
+            .carousel-track {
+                height: 220px;
+            }
+            
+            .carousel-item {
+                width: 140px;
+                height: 180px;
+            }
+            
+            .carousel-content {
+                padding: 15px 10px;
+            }
+            
+            .carousel-content h3 {
+                font-size: 1rem;
+            }
+            
+            .carousel-content p {
+                font-size: 0.8rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+            
+            .booking-options {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .custom-package-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-package-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #e67e22, #d35400, #e67e22);
+            background-size: 200% 100%;
+            animation: gradientFlow 3s linear infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .custom-package-section h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .custom-package-section p {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .build-btn {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        .build-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.5);
+        }
+
+        .build-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            animation: modalFadeIn 0.5s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .destination-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .destination-card.selected {
+            box-shadow: 0 0 0 3px #e67e22;
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .destination-info {
+            padding: 15px;
+            background-color: white;
+        }
+
+        .destination-info h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .destination-info p {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+
+        .add-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #e67e22;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .destination-card.selected .add-btn {
+            background-color: #27ae60;
+            transform: rotate(45deg);
+        }
+
+        .modal-footer {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+
+        .selected-count {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .selected-count span {
+            font-weight: 600;
+            color: #e67e22;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .next-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .next-btn i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Package Selection Modal */
+        .package-selection {
+            text-align: center;
+        }
+
+        .package-selection h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .package-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .package-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .package-card.selected {
+            box-shadow: 0 0 0 3px #e67e22;
+        }
+
+        .package-card.luxury::after {
+            content: "Premium";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: #e67e22;
+            color: white;
+            padding: 3px 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .package-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .package-card.luxury .package-icon {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+        }
+
+        .package-card h5 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .package-features li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .package-features li i {
+            color: #27ae60;
+            margin-right: 8px;
+            font-size: 0.8rem;
+            margin-top: 3px;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .package-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #7f8c8d;
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .send-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .send-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #e67e22;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Confirmation Animation */
+        .confirmation {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 5;
+            stroke: #27ae60;
+            stroke-miterlimit: 10;
+            margin: 0 auto 20px;
+            box-shadow: inset 0px 0px 0px #27ae60;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 5;
+            stroke-miterlimit: 10;
+            stroke: #27ae60;
+            fill: none;
+            animation: stroke .6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke .3s cubic-bezier(0.65, 0, 0.45, 1) .8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes scale {
+            0%, 100% {
+                transform: none;
+            }
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 40px #27ae60;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .destinations-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .custom-package-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .package-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem;
+            }
+            
+            .custom-package-section {
+                padding: 30px 20px;
+            }
+            
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-header h3 {
+                font-size: 1.3rem;
+            }
+            
+            .package-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Contact container: flex layout for side-by-side */
+  .contact-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  /* Tour packages section (left side) */
+  .tour-packages-section {
+    flex: 1 1 450px; /* grows, shrinks, basis */
+    min-width: 300px;
+  }
+
+  .tour-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* WhatsApp button */
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25d366; /* WhatsApp green */
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 8px rgba(37, 211, 102, 0.4);
+  }
+
+  .whatsapp-btn:hover {
+    background-color: #1ebe57;
+  }
+
+  .whatsapp-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+  }
+
+  /* Map container (right side) */
+  .map-container {
+    flex: 1 1 350px;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .tour-packages-section,
+    .map-container {
+      flex: 1 1 100%;
+      min-width: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .tour-title {
+      font-size: 1.5rem;
+    }
+  }
     </style>
   </head>
   <body>
@@ -1399,18 +2500,17 @@
       <div class="banner_text">
         <h1 class="banner_taital">Tarboush</h1>
         <p class="banner_text_1" id="typewriterText">
-          <span>🌍 Discover the Heart of Egypt Like Never Before!</span>
+          <b>🌍 Discover the Heart of Egypt Like Never Before! ✨</b>
           <br />
-          <span>✨ Join Us on a Journey Through Time and Culture!</span>
           <br />
-          ✨ Let the adventure begin — explore, experience, and fall in love
-          with the timeless charm of our land.
+          <b>✨ Explore Egypt like never before with tarboush ! 🌍</b>
+          <br />
+          <b>✨ Join Us on a Journey Through Time and Culture ! ✨</b>
         </p>
         <div class="read_bt">
           <a
-            href="https://wa.me/201027073510?text=Hello%20I%20am%20interested%20in%20your%20tour%20services"
-            class="whatsapp-btn"
-            target="_blank"
+          href="#contact"
+
             >Contact Us</a
           >
         </div>
@@ -1423,44 +2523,11 @@
         <!-- Worlds Section -->
         <section class="section worlds-section" id="worlds">
           <div class="container">
-            <h2 class="section-title">01<br />Our Worlds</h2>
+            <h2 class="section-title"><br />Our Worlds</h2>
 
             <div class="world-item">
               <div class="world-image">
-                <img src="images/img-1.png" alt="Tutankhamun" loading="lazy" />
-              </div>
-              <div class="world-content">
-                <h3 class="world-title">🏛️ Tutankhamun</h3>
-                <p class="world-description">
-                  Tutankhamun was a young Egyptian pharaoh from the 18th
-                  Dynasty, who ruled around 1332–1323 BC.
-                  <br /><br />
-                  His tomb (KV62) was discovered in 1922 in the Valley of the
-                  Kings, Luxor, filled with treasures like his famous golden
-                  mask and solid gold coffin.
-                  <br /><br />
-                  It's one of the greatest archaeological finds in history.
-                  <br /><br />
-                  📍 Location: Valley of the Kings, West Bank, Luxor, Egypt
-                </p>
-                <div class="camel-animation">
-                  <img
-                    src="images/Untitled-design-3--unscreen.gif"
-                    alt="Walking Camel"
-                  />
-                </div>
-
-                <a href="#contact" class="world-button">Contact Us</a>
-              </div>
-            </div>
-
-            <div class="world-item">
-              <div class="world-image">
-                <img
-                  src="images/img-2.png"
-                  alt="Pyramids of Giza"
-                  loading="lazy"
-                />
+                <img src="images/img-2.png" alt="Tutankhamun" loading="lazy" />
               </div>
               <div class="world-content">
                 <h3 class="world-title">🏛️ The Pyramids of Egypt</h3>
@@ -1477,11 +2544,17 @@
                   These pyramids showcase the advanced engineering, astronomy,
                   and power of ancient Egyptian civilization.
                 </p>
-                <div class="holo-animation">
-                  <img src="images/holo.png" alt="Walking Camel" />
+                <div class="camel-animation">
+                  <img
+                    src="images/Untitled-design-3--unscreen.gif"
+                    alt="Walking Camel"
+                  />
                 </div>
+
               </div>
             </div>
+
+           
 
             <div style="text-align: center; margin-top: 30px">
               <a href="#contact" class="world-button" style="padding: 12px 30px"
@@ -1490,11 +2563,59 @@
             </div>
           </div>
         </section>
-
+        <div class="container">
+          <h1>Popular Destinations</h1>
+          <h2>Explore Our Luxury Destinations</h2>
+          
+          <div class="carousel-container" >
+              <button class="carousel-arrow left"><i class="fas fa-chevron-left"></i></button>
+              <div class="carousel-track" style="justify-content: center;">
+                  <!-- Carousel items will be added dynamically by JavaScript -->
+              </div>
+              <button class="carousel-arrow right"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          
+          <div class="carousel-nav">
+              <!-- Dots will be added dynamically by JavaScript -->
+          </div>
+          
+          <!-- <div class="sponsored">
+            <div class="sponsored-content">
+                <div class="sponsored-avatar">AH</div>
+                <div class="sponsored-text">
+                    <p>Ahmed Naeem - Programmer Dev 💬️</p>
+                    <p>Check out the tourist website that was designed with modern features and luxury travel options...</p>
+                    <button class="whatsapp-btn"><i class="fab fa-whatsapp"></i> +20 01015643260</button>
+                </div>
+            </div>
+        </div> -->
+      </div>
+      
+      <!-- Booking Modal -->
+      <div class="modal" id="bookingModal">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3 id="modalDestination">Book Your Trip</h3>
+                  <button class="close-modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <img id="modalImage" class="modal-image" src="" alt="Destination">
+                  <p class="destination-description" id="modalDescription"></p>
+                  <div class="booking-options">
+                      <button class="booking-btn luxury" data-type="luxury">
+                          <i class="fas fa-crown"></i> Luxury Package
+                      </button>
+                      <button class="booking-btn" data-type="economy">
+                          <i class="fas fa-wallet"></i> Economy Package
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
         <!-- About Section -->
-        <section class="section about-section" id="about">
+        <section class="section about-section" id="about" style="margin-top: 2rem;">
           <div class="container">
-            <h2 class="section-title">02<br />About Tour Guide 🌟</h2>
+            <h2 class="section-title"><br />About Tour Guide 🌟</h2>
 
             <div class="about-content">
               <div class="about-text">
@@ -1559,11 +2680,107 @@
             </div>
           </div>
         </section>
-
+        <div class="container" style="margin-top: 2rem;">
+          <h1>Egypt Travel</h1>
+          <h2>Create Your Perfect Travel Package</h2>
+          
+          <div class="custom-package-section">
+              <h3>Build Your Dream Vacation</h3>
+              <p>Can't decide on just one destination? Create your own custom package by selecting multiple locations across Egypt. Choose from our luxury or economy options to match your travel style.</p>
+              <button class="build-btn" id="buildPackageBtn">
+                  <i class="fas fa-plus-circle"></i> Build Your Package Now
+              </button>
+          </div>
+      </div>
+      
+      <!-- Destination Selection Modal -->
+      <div class="modal" id="destinationModal">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3>Select Your Destinations</h3>
+                  <button class="close-modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div class="destinations-grid" id="destinationsGrid">
+                      <!-- Destinations will be added by JavaScript -->
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <div class="selected-count">Selected: <span id="selectedCount">0</span> destinations</div>
+                  <button class="next-btn" id="nextToPackageBtn" disabled>
+                      Next <i class="fas fa-arrow-right"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Package Selection Modal -->
+      <div class="modal" id="packageModal">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3>Choose Your Package Type</h3>
+                  <button class="close-modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div class="package-selection">
+                      <h4>Select your preferred travel style</h4>
+                      <div class="package-options">
+                          <div class="package-card" data-type="economy">
+                              <div class="package-icon">
+                                  <i class="fas fa-wallet"></i>
+                              </div>
+                              <h5>Economy Package</h5>
+                              
+                          </div>
+                          <div class="package-card luxury" data-type="luxury">
+                              <div class="package-icon">
+                                  <i class="fas fa-crown"></i>
+                              </div>
+                              <h5>Luxury Package</h5>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button class="next-btn" id="backToDestinationsBtn">
+                      <i class="fas fa-arrow-left"></i> Back
+                  </button>
+                  <button class="send-btn" id="sendWhatsAppBtn">
+                      <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                  </button>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Loading Screen -->
+      <div class="modal" id="loadingModal">
+          <div class="modal-content">
+              <div class="loading">
+                  <div class="loading-spinner"></div>
+                  <h3>Preparing your custom package...</h3>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Confirmation Screen -->
+      <div class="modal" id="confirmationModal">
+          <div class="modal-content">
+              <div class="confirmation">
+                  <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                      <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                  </svg>
+                  <h3>Your request has been sent!</h3>
+                  <p>Our travel consultant will contact you shortly with your custom package details.</p>
+              </div>
+          </div>
+      </div>
+      
         <!-- Testimonial Section -->
         <section class="section testimonial-section" id="testimonials">
           <div class="container">
-            <h2 class="section-title">03<br />Testimonials</h2>
+            <h2 class="section-title"><br />Testimonials</h2>
 
             <!-- Testimonial Slider -->
             <div class="testimonial-slider swiper mySwiper">
@@ -1897,247 +3114,47 @@
               </div>
             </div>
 
-            <!-- TikTok Section -->
-            <div class="tiktok-section">
-              <div class="tiktok-slider swiper tiktokSwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide tiktok-slide">
-                    <blockquote
-                      class="tiktok-embed"
-                      cite="https://www.tiktok.com/@egyptguide0/video/7495490451953224967"
-                      data-video-id="7495490451953224967"
-                      style="width: 100%; min-width: 300px"
-                    >
-                      <section>Loading...</section>
-                    </blockquote>
-                  </div>
-
-                  <div class="swiper-slide tiktok-slide">
-                    <blockquote
-                      class="tiktok-embed"
-                      cite="https://www.tiktok.com/@egyptguide0/video/7501060490135670034"
-                      data-video-id="7501060490135670034"
-                      style="width: 100%; min-width: 300px"
-                    >
-                      <section>Loading...</section>
-                    </blockquote>
-                  </div>
-
-                  <div class="swiper-slide tiktok-slide">
-                    <blockquote
-                      class="tiktok-embed"
-                      cite="https://www.tiktok.com/@egyptguide0/video/7499818766046416146"
-                      data-video-id="7499818766046416146"
-                      style="max-width: 605px; min-width: 325px"
-                    >
-                      <section>
-                        <a
-                          target="_blank"
-                          title="@egyptguide0"
-                          href="https://www.tiktok.com/@egyptguide0?refer=embed"
-                          >@egyptguide0</a
-                        >
-                        Sailing the Nile this May — ancient temples, golden
-                        sunsets, and stories that come alive on the water. Egypt
-                        like you've never seen it.
-                        <a
-                          title="nileadventures"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/nileadventures?refer=embed"
-                          >#NileAdventures</a
-                        >
-                        <a
-                          title="mayinegypt"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/mayinegypt?refer=embed"
-                          >#MayInEgypt</a
-                        >
-                        <a
-                          title="egypttravel"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/egypttravel?refer=embed"
-                          >#EgyptTravel</a
-                        >
-                        <a
-                          title="tourwithme"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/tourwithme?refer=embed"
-                          >#TourWithMe</a
-                        >
-                        <a
-                          title="hiddenegypt"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/hiddenegypt?refer=embed"
-                          >#HiddenEgypt</a
-                        ><a
-                          title="capcut"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/capcut?refer=embed"
-                          >#CapCut</a
-                        >
-                        <a
-                          target="_blank"
-                          title="♬ River Flows in you - LKAxelrod & 花凯"
-                          href="https://www.tiktok.com/music/River-Flows-in-you-7437415642691012625?refer=embed"
-                          >♬ River Flows in you - LKAxelrod & 花凯</a
-                        >
-                      </section>
-                    </blockquote>
-                  </div>
-
-                  <div class="swiper-slide tiktok-slide">
-                    <blockquote
-                      class="tiktok-embed"
-                      cite="https://www.tiktok.com/@egyptguide0/video/7499146384860466450"
-                      data-video-id="7499146384860466450"
-                      style="max-width: 605px; min-width: 325px"
-                    >
-                      <section>
-                        <a
-                          target="_blank"
-                          title="@egyptguide0"
-                          href="https://www.tiktok.com/@egyptguide0?refer=embed"
-                          >@egyptguide0</a
-                        >
-                        POV: You're exploring Egypt in April with a local guide
-                        — pyramids, hidden gems, and real stories they don't
-                        tell you in history books!
-                        <a
-                          title="egypttravel"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/egypttravel?refer=embed"
-                          >#EgyptTravel</a
-                        >
-                        <a
-                          title="tourwithme"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/tourwithme?refer=embed"
-                          >#TourWithMe</a
-                        >
-                        <a
-                          title="hiddenegypt"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/hiddenegypt?refer=embed"
-                          >#HiddenEgypt</a
-                        >
-                        <a
-                          title="apriladventures"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/apriladventures?refer=embed"
-                          >#AprilAdventures</a
-                        >
-                        <a
-                          title="pyramids"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/pyramids?refer=embed"
-                          >#Pyramids</a
-                        >
-                        <a
-                          title="capcut"
-                          target="_blank"
-                          href="https://www.tiktok.com/tag/capcut?refer=embed"
-                          >#CapCut</a
-                        >
-                        <a
-                          target="_blank"
-                          title="♬ original sound - Bin Waseem Associates"
-                          href="https://www.tiktok.com/music/original-sound-7496407652122692374?refer=embed"
-                          >♬ original sound - Bin Waseem Associates</a
-                        >
-                      </section>
-                    </blockquote>
-                  </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
             </div>
           </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="section contact-section" id="contact">
-          <div style="text-align: center; position: relative; bottom: 10rem">
-            <img style="width: 10rem" src="images/Logo.png" alt="" />
-          </div>
-          <div class="container" style="position: relative; bottom: 6rem">
-            <h2 class="section-title">04<br />Get In Touch</h2>
+       <!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
 
-            <div class="contact-container">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-7">
-                    <div class="row">
-                      <div class="tour-packages-section">
-                        <h2 class="tour-title">✈️ Our Egypt Tour Packages</h2>
+    <div class="contact-container">
+      <div class="tour-packages-section">
+        <h2 class="tour-title">✈️ Our Egypt Tour Packages</h2>
+        <p class="cta-text">
+          🧳 Package your bags and get ready to explore the wonders of Egypt with us!
+        </p>
+        <a
+          href="https://wa.me/201556821607?text=Hello%20I%20am%20interested%20in%20your%20tour%20services"
+          class="whatsapp-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img 
+            src="images/whatsapp-logo-png_seeklogo-168310.png"
+            alt="WhatsApp"
+            class="whatsapp-logo"
+          />
+          Chat with us on WhatsApp
+        </a>
+      </div>
 
-                        <ul class="tour-packages-list">
-                          <li>
-                            <strong>1 Day Tour:</strong> Quick escape to the
-                            highlights of Cairo and Giza.
-                          </li>
-                          <li>
-                            <strong>3 Day Package:</strong> A perfect mix of
-                            pyramids, museums, and the Nile.
-                          </li>
-                          <li>
-                            <strong>9 Day Adventure:</strong> Full Egypt
-                            experience with desert, temples & cruise.
-                          </li>
-                          <li>
-                            <strong>VIP Package:</strong> Private tours, 5-star
-                            hotels, and luxury transport.
-                          </li>
-                          <li>
-                            <strong>Custom Package:</strong> Build your own tour
-                            – your plan, your pace!
-                          </li>
-                        </ul>
-
-                        <div class="contact-button">
-                          <p class="cta-text">
-                            🧳 Package your bags and get ready to explore the
-                            wonders of Egypt with us!
-                          </p>
-                          <a
-                            href="https://wa.me/201027073510?text=Hello%20I%20am%20interested%20in%20your%20tour%20services"
-                            class="whatsapp-btn"
-                            target="_blank"
-                          >
-                            <img
-                              src="images/whatsapp-logo-png_seeklogo-168310.png"
-                              alt="WhatsApp"
-                            />
-                            Chat with us on WhatsApp
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="row">
-                      <div class="map-container">
-                        <img
-                          src="images/map-img.png"
-                          alt="Map"
-                          class="map-image"
-                          loading="lazy"
-                        />
-                        <img
-                          style="margin-top: 2rem"
-                          src="images/Untitled design.png"
-                          alt="Map"
-                          class="map-image"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div class="map-container">
+        <img
+          src="images/Untitled design.png"
+          alt="Map"
+          class="map-image"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </div>
 
@@ -2231,7 +3248,379 @@
         </div>
       </div>
     </footer>
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // All major Egyptian tourist destinations
+          const destinations = [
+  {
+      name: "Cairo",
+      image: "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=1470&q=80",
+      description: "Explore the vibrant capital with its ancient pyramids, bustling bazaars, and rich history spanning over 4,000 years."
+  },
+  {
+      name: "Giza",
+      image: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1470&q=80",
+      description: "Marvel at the Great Pyramids and Sphinx, the last remaining wonders of the ancient world."
+  },
+  {
+      name: "Luxor",
+      image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1470&q=80",
+      description: "Discover the world's greatest open-air museum with its magnificent temples and tombs."
+  },
+  {
+      name: "Aswan",
+      image: "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?auto=format&fit=crop&w=1470&q=80",
+      description: "Experience the beauty of the Nile with felucca rides and visit the stunning Philae Temple."
+  },
+  {
+      name: "Alexandria",
+      image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1470&q=80",
+      description: "Enjoy the Mediterranean charm of this historic city with its libraries and catacombs."
+  },
+  {
+      name: "Hurghada",
+      image: "https://images.unsplash.com/photo-1553696590-4b3f68898333?auto=format&fit=crop&w=1470&q=80",
+      description: "Dive into the Red Sea's spectacular coral reefs and enjoy world-class resorts."
+  },
+  {
+      name: "Marsa Alam",
+      image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&w=1494&q=80",
+      description: "Pristine beaches and some of Egypt's best diving spots with dolphins and dugongs."
+  },
+  {
+      name: "Dahab",
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1470&q=80",
+      description: "A laid-back beach town with excellent diving and windsurfing opportunities."
+  },
+  {
+      name: "Siwa Oasis",
+      image: "https://images.unsplash.com/photo-1604537466573-5e94508fd243?auto=format&fit=crop&w=1469&q=80",
+      description: "A remote desert oasis with unique Berber culture and stunning salt lakes."
+  },
+  {
+      name: "Fayoum",
+      image: "images/fayoum.png",
+      description: "Home to Wadi El Rayan waterfalls, Magic Lake, and the Valley of the Whales (Wadi Al-Hitan)."
+  },
+  {
+      name: "White Desert",
+      image: "images/White Desert.png",
+      description: "Surreal rock formations and desert camping in Egypt's most otherworldly landscape."
+  },
+  {
+      name: "Sharm El Sheikh",
+      image: "images/Sharm El Sheikh.png",
+      description: "Experience luxury resorts, diving, and the stunning Ras Mohammed National Park."
+  },
+  {
+      name: "Saint Catherine",
+      image: "images/Saint Catherine.png",
+      description: "Climb Mount Sinai and visit St. Catherine's Monastery in this sacred and serene location."
+  },
+  {
+      name: "Sakkara",
+      image: "images/Sakkara.png",
+      description: "Explore the Step Pyramid of Djoser, the oldest pyramid in Egypt."
+  },
+  {
+      name: "Dahshur",
+      image: "images/Dahshur.png",
+      description: "Home to the Bent Pyramid and the Red Pyramid, representing the evolution of pyramid construction."
+  },
+  {
+      name: "Abydos",
+      image: "images/Abydos.png",
+      description: "One of the oldest cities in Upper Egypt, known for the impressive Temple of Seti I and ancient tombs."
+  },
+  {
+      name: "Edfu",
+      image: "images/Edfu.png",
+      description: "Home to the well-preserved Temple of Horus, one of Egypt’s best-preserved ancient temples."
+  },
+  {
+      name: "Kom Ombo",
+      image: "images/Kom Ombo.png",
+      description: "A unique double temple dedicated to Sobek and Horus, located right on the Nile River."
+  },
+  {
+      name: "Abu Simbel",
+      image: "images/Abu Simbel.png",
+      description: "Massive rock temples built by Ramses II, famous for their sun alignment twice a year."
+  },
+  {
+      name: "Taba",
+      image: "images/Taba.png",
+      description: "A peaceful town on the Sinai Peninsula with clear waters and access to Israel border crossing."
+  },
+  {
+      name: "Nuweiba",
+      image: "images/Nuweiba.png",
+      description: "Relaxing beaches, Bedouin camps, and proximity to the colorful canyon and mountains of Sinai."
+  },
+  {
+      name: "Ras Sudr",
+      image: "images/Ras Sudr.png",
+      description: "Popular for kitesurfing, weekend getaways from Cairo, and serene beach resorts."
+  },
+  {
+      name: "Ain Sokhna",
+      image: "images/Ain Sokhna.png",
+      description: "Closest Red Sea beach to Cairo, perfect for weekend escapes and relaxing resorts."
+  },
+  {
+      name: "Wadi El Hitan",
+      image: "images/Wadi El Hitan.png",
+      description: "UNESCO World Heritage site known as the 'Valley of the Whales', showcasing ancient marine fossils."
+  },
 
+];
+
+          
+          // DOM elements
+          const carouselTrack = document.querySelector('.carousel-track');
+          const dotsContainer = document.querySelector('.carousel-nav');
+          const prevBtn = document.querySelector('.carousel-arrow.left');
+          const nextBtn = document.querySelector('.carousel-arrow.right');
+          const bookingModal = document.getElementById('bookingModal');
+          const closeModalBtn = document.querySelector('.close-modal');
+          const modalDestination = document.getElementById('modalDestination');
+          const modalImage = document.getElementById('modalImage');
+          const modalDescription = document.getElementById('modalDescription');
+          const bookingBtns = document.querySelectorAll('.booking-btn');
+          const whatsappBtn = document.querySelector('.whatsapp-btn');
+          
+          let currentIndex = 0;
+          let intervalId;
+          const slideInterval = 1000; // 4 seconds
+          const visibleItems = 5; // Number of items visible at once (should be odd)
+          const centerIndex = Math.floor(visibleItems / 2);
+
+
+          // Initialize carousel
+          function initCarousel() {
+              // Clear existing content
+              carouselTrack.innerHTML = '';
+              dotsContainer.innerHTML = '';
+              
+              // Create carousel items
+              destinations.forEach((destination, index) => {
+                  const carouselItem = document.createElement('div');
+                  carouselItem.className = 'carousel-item';
+                  carouselItem.dataset.index = index;
+                  carouselItem.innerHTML = `
+                      <img src="${destination.image}" alt="${destination.name}">
+                      <div class="carousel-content">
+                          <h3>${destination.name}</h3>
+                          <p>${destination.description.substring(0, 50)}...</p>
+                      </div>
+                  `;
+                  carouselTrack.appendChild(carouselItem);
+                  
+                  // Add click event to open modal
+                  carouselItem.addEventListener('click', function() {
+                      openBookingModal(index);
+                  });
+              });
+              
+              // Create dots
+              destinations.forEach((_, index) => {
+                  const dot = document.createElement('div');
+                  dot.className = 'carousel-dot';
+                  if (index === 0) dot.classList.add('active');
+                  dot.dataset.index = index;
+                  dot.addEventListener('click', function() {
+                      goToSlide(parseInt(this.dataset.index));
+                      resetAutoSlide();
+                  });
+                  dotsContainer.appendChild(dot);
+              });
+              
+              // Position initial items
+              updateCarousel();
+          }
+          
+          // Update carousel position
+          function updateCarousel() {
+              const items = document.querySelectorAll('.carousel-item');
+              const itemWidth = items[0].offsetWidth;
+              const centerOffset = (carouselTrack.offsetWidth - itemWidth) / 2;
+              
+              // First hide all items
+              items.forEach(item => {
+                  item.style.visibility = 'hidden';
+              });
+              
+              // Show only visible items (currentIndex ± 2)
+              const startIndex = Math.max(0, currentIndex - 2);
+              const endIndex = Math.min(destinations.length - 1, currentIndex + 2);
+              
+              for (let i = startIndex; i <= endIndex; i++) {
+                  items[i].style.visibility = 'visible';
+              }
+              
+              items.forEach((item, index) => {
+                  const position = index - currentIndex;
+                  const absPosition = Math.abs(position);
+                  const distanceFromCenter = Math.abs(position - centerIndex);
+                  
+                  // Calculate scale and z-index based on distance from center
+                  let scale = 1 - (distanceFromCenter * 0.1);
+                  if (scale < 0.7) scale = 0.7;
+                  
+                  // Calculate rotation based on position
+                  let rotateY = position * 15;
+                  if (position === 0) rotateY = 0; // Center item straight
+                  
+                  // Calculate z-index - center item highest
+                  let zIndex = visibleItems - distanceFromCenter;
+                  
+                  // Calculate opacity
+                  let opacity = 1 - (distanceFromCenter * 0.2);
+                  if (opacity < 0.5) opacity = 0.5;
+                  
+                  // Apply transformations
+                  item.style.transform = `
+                      translateX(${position * (itemWidth * 0.8)}px) 
+                      rotateY(${rotateY}deg)
+                      scale(${scale})
+                  `;
+                  item.style.zIndex = zIndex;
+                  item.style.opacity = opacity;
+                  
+                  // Highlight center item
+                  if (position === 0) {
+                      item.style.boxShadow = '0 25px 50px rgba(0,0,0,0.3)';
+                  } else {
+                      item.style.boxShadow = '0 15px 35px rgba(0,0,0,0.2)';
+                  }
+              });
+              
+              // Update active dot
+              document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                  dot.classList.toggle('active', index === currentIndex);
+              });
+          }
+          
+          // Go to specific slide
+          function goToSlide(index) {
+              currentIndex = index;
+              if (currentIndex < 0) currentIndex = destinations.length - 1;
+              if (currentIndex >= destinations.length) currentIndex = 0;
+              updateCarousel();
+          }
+          
+          // Next slide
+          function nextSlide() {
+              goToSlide(currentIndex + 1);
+          }
+          
+          // Previous slide
+          function prevSlide() {
+              goToSlide(currentIndex - 1);
+          }
+          
+          // Auto slide
+          function startAutoSlide() {
+              intervalId = setInterval(nextSlide, slideInterval);
+          }
+          
+          function stopAutoSlide() {
+              clearInterval(intervalId);
+          }
+          
+          function resetAutoSlide() {
+              stopAutoSlide();
+              startAutoSlide();
+          }
+          
+          // Open booking modal
+          function openBookingModal(index) {
+              const destination = destinations[index];
+              modalDestination.textContent = `Book Your Trip to ${destination.name}`;
+              modalImage.src = destination.image;
+              modalDescription.textContent = destination.description;
+              bookingModal.dataset.destination = destination.name;
+              bookingModal.classList.add('show');
+              document.body.style.overflow = 'hidden';
+              stopAutoSlide();
+          }
+          
+          // Close booking modal
+          function closeBookingModal() {
+              bookingModal.classList.remove('show');
+              document.body.style.overflow = '';
+              startAutoSlide();
+          }
+          
+          // Redirect to WhatsApp
+          function redirectToWhatsApp(packageType) {
+              const destination = bookingModal.dataset.destination;
+              const message = `Hello, I would like to book the ${packageType} package for ${destination}. Please send me more details.`;
+              const encodedMessage = encodeURIComponent(message);
+              window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+              closeBookingModal();
+          }
+          
+          // Event listeners
+          prevBtn.addEventListener('click', function() {
+              prevSlide();
+              resetAutoSlide();
+          });
+          
+          nextBtn.addEventListener('click', function() {
+              nextSlide();
+              resetAutoSlide();
+          });
+          
+          closeModalBtn.addEventListener('click', closeBookingModal);
+          bookingModal.addEventListener('click', function(e) {
+              if (e.target === bookingModal) {
+                  closeBookingModal();
+              }
+          });
+          
+          bookingBtns.forEach(btn => {
+              btn.addEventListener('click', function() {
+                  const packageType = this.dataset.type;
+                  redirectToWhatsApp(packageType);
+              });
+          });
+          
+          whatsappBtn.addEventListener('click', function() {
+              window.open(`https://wa.me/?text=Hello, I'm interested in your travel packages. Please send me more information.`, '_blank');
+          });
+          
+          // Keyboard navigation
+          document.addEventListener('keydown', function(e) {
+              if (bookingModal.classList.contains('show')) {
+                  if (e.key === 'Escape') {
+                      closeBookingModal();
+                  }
+              } else {
+                  if (e.key === 'ArrowLeft') {
+                      prevSlide();
+                      resetAutoSlide();
+                  } else if (e.key === 'ArrowRight') {
+                      nextSlide();
+                      resetAutoSlide();
+                  }
+              }
+          });
+          
+          // Handle window resize
+          window.addEventListener('resize', function() {
+              updateCarousel();
+          });
+          
+          // Initialize and start
+          initCarousel();
+          startAutoSlide();
+          
+          // Pause auto slide on hover
+          carouselTrack.addEventListener('mouseenter', stopAutoSlide);
+          carouselTrack.addEventListener('mouseleave', startAutoSlide);
+      });
+  </script>
     <!-- Scroll to Top Button -->
     <button id="scrollTopBtn" title="Back to Top">
       <svg
@@ -2246,10 +3635,307 @@
       </svg>
     </button>
 
+ 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script async src="https://www.tiktok.com/embed.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // All major Egyptian tourist destinations
+          const destinations = [
+          {
+      name: "Cairo",
+      image: "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=1470&q=80",
+      description: "Explore the vibrant capital with its ancient pyramids, bustling bazaars, and rich history spanning over 4,000 years."
+  },
+  {
+      name: "Giza",
+      image: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1470&q=80",
+      description: "Marvel at the Great Pyramids and Sphinx, the last remaining wonders of the ancient world."
+  },
+  {
+      name: "Luxor",
+      image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1470&q=80",
+      description: "Discover the world's greatest open-air museum with its magnificent temples and tombs."
+  },
+  {
+      name: "Aswan",
+      image: "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?auto=format&fit=crop&w=1470&q=80",
+      description: "Experience the beauty of the Nile with felucca rides and visit the stunning Philae Temple."
+  },
+  {
+      name: "Alexandria",
+      image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1470&q=80",
+      description: "Enjoy the Mediterranean charm of this historic city with its libraries and catacombs."
+  },
+  {
+      name: "Hurghada",
+      image: "https://images.unsplash.com/photo-1553696590-4b3f68898333?auto=format&fit=crop&w=1470&q=80",
+      description: "Dive into the Red Sea's spectacular coral reefs and enjoy world-class resorts."
+  },
+  {
+      name: "Marsa Alam",
+      image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&w=1494&q=80",
+      description: "Pristine beaches and some of Egypt's best diving spots with dolphins and dugongs."
+  },
+  {
+      name: "Dahab",
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1470&q=80",
+      description: "A laid-back beach town with excellent diving and windsurfing opportunities."
+  },
+  {
+      name: "Siwa Oasis",
+      image: "https://images.unsplash.com/photo-1604537466573-5e94508fd243?auto=format&fit=crop&w=1469&q=80",
+      description: "A remote desert oasis with unique Berber culture and stunning salt lakes."
+  },
+  {
+      name: "Fayoum",
+      image: "images/fayoum.png",
+      description: "Home to Wadi El Rayan waterfalls, Magic Lake, and the Valley of the Whales (Wadi Al-Hitan)."
+  },
+  {
+      name: "White Desert",
+      image: "images/White Desert.png",
+      description: "Surreal rock formations and desert camping in Egypt's most otherworldly landscape."
+  },
+  {
+      name: "Sharm El Sheikh",
+      image: "images/Sharm El Sheikh.png",
+      description: "Experience luxury resorts, diving, and the stunning Ras Mohammed National Park."
+  },
+  {
+      name: "Saint Catherine",
+      image: "images/Saint Catherine.png",
+      description: "Climb Mount Sinai and visit St. Catherine's Monastery in this sacred and serene location."
+  },
+  {
+      name: "Sakkara",
+      image: "images/Sakkara.png",
+      description: "Explore the Step Pyramid of Djoser, the oldest pyramid in Egypt."
+  },
+  {
+      name: "Dahshur",
+      image: "images/Dahshur.png",
+      description: "Home to the Bent Pyramid and the Red Pyramid, representing the evolution of pyramid construction."
+  },
+  {
+      name: "Abydos",
+      image: "images/Abydos.png",
+      description: "One of the oldest cities in Upper Egypt, known for the impressive Temple of Seti I and ancient tombs."
+  },
+  {
+      name: "Edfu",
+      image: "images/Edfu.png",
+      description: "Home to the well-preserved Temple of Horus, one of Egypt’s best-preserved ancient temples."
+  },
+  {
+      name: "Kom Ombo",
+      image: "images/Kom Ombo.png",
+      description: "A unique double temple dedicated to Sobek and Horus, located right on the Nile River."
+  },
+  {
+      name: "Abu Simbel",
+      image: "images/Abu Simbel.png",
+      description: "Massive rock temples built by Ramses II, famous for their sun alignment twice a year."
+  },
+  {
+      name: "Taba",
+      image: "images/Taba.png",
+      description: "A peaceful town on the Sinai Peninsula with clear waters and access to Israel border crossing."
+  },
+  {
+      name: "Nuweiba",
+      image: "images/Nuweiba.png",
+      description: "Relaxing beaches, Bedouin camps, and proximity to the colorful canyon and mountains of Sinai."
+  },
+  {
+      name: "Ras Sudr",
+      image: "images/Ras Sudr.png",
+      description: "Popular for kitesurfing, weekend getaways from Cairo, and serene beach resorts."
+  },
+  {
+      name: "Ain Sokhna",
+      image: "images/Ain Sokhna.png",
+      description: "Closest Red Sea beach to Cairo, perfect for weekend escapes and relaxing resorts."
+  },
+  {
+      name: "Wadi El Hitan",
+      image: "images/Wadi El Hitan.png",
+      description: "UNESCO World Heritage site known as the 'Valley of the Whales', showcasing ancient marine fossils."
+  },
 
+          ];
+          
+          // DOM elements
+          const buildPackageBtn = document.getElementById('buildPackageBtn');
+          const destinationModal = document.getElementById('destinationModal');
+          const packageModal = document.getElementById('packageModal');
+          const loadingModal = document.getElementById('loadingModal');
+          const confirmationModal = document.getElementById('confirmationModal');
+          const destinationsGrid = document.getElementById('destinationsGrid');
+          const selectedCount = document.getElementById('selectedCount');
+          const nextToPackageBtn = document.getElementById('nextToPackageBtn');
+          const backToDestinationsBtn = document.getElementById('backToDestinationsBtn');
+          const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+          const closeModalBtns = document.querySelectorAll('.close-modal');
+          
+          // State
+          let selectedDestinations = [];
+          let selectedPackageType = null;
+          
+          // Initialize destination grid
+          function initDestinationGrid() {
+              destinationsGrid.innerHTML = '';
+              
+              destinations.forEach((destination, index) => {
+                  const destinationCard = document.createElement('div');
+                  destinationCard.className = 'destination-card';
+                  destinationCard.dataset.index = index;
+                  destinationCard.innerHTML = `
+                      <img src="${destination.image}" alt="${destination.name}">
+                      <div class="destination-info">
+                          <h4>${destination.name} <span class="add-btn">+</span></h4>
+                          <p>${destination.description}</p>
+                      </div>
+                  `;
+                  destinationsGrid.appendChild(destinationCard);
+                  
+                  // Add click event to select/deselect destination
+                  destinationCard.addEventListener('click', function() {
+                      toggleDestinationSelection(index);
+                  });
+              });
+          }
+          
+          // Toggle destination selection
+          function toggleDestinationSelection(index) {
+              const destinationCard = document.querySelector(`.destination-card[data-index="${index}"]`);
+              
+              if (selectedDestinations.includes(index)) {
+                  // Deselect
+                  selectedDestinations = selectedDestinations.filter(i => i !== index);
+                  destinationCard.classList.remove('selected');
+              } else {
+                  // Select
+                  selectedDestinations.push(index);
+                  destinationCard.classList.add('selected');
+              }
+              
+              // Update selected count
+              selectedCount.textContent = selectedDestinations.length;
+              
+              // Enable/disable next button
+              nextToPackageBtn.disabled = selectedDestinations.length === 0;
+          }
+          
+          // Open destination modal
+          function openDestinationModal() {
+              selectedDestinations = [];
+              initDestinationGrid();
+              selectedCount.textContent = '0';
+              nextToPackageBtn.disabled = true;
+              destinationModal.classList.add('show');
+              document.body.style.overflow = 'hidden';
+          }
+          
+          // Open package modal
+          function openPackageModal() {
+              // Reset package selection
+              document.querySelectorAll('.package-card').forEach(card => {
+                  card.classList.remove('selected');
+              });
+              selectedPackageType = null;
+              
+              destinationModal.classList.remove('show');
+              packageModal.classList.add('show');
+          }
+          
+          // Go back to destination selection
+          function backToDestinations() {
+              packageModal.classList.remove('show');
+              destinationModal.classList.add('show');
+          }
+          
+          // Send WhatsApp message
+          function sendWhatsAppMessage() {
+              // Show loading screen
+              packageModal.classList.remove('show');
+              loadingModal.classList.add('show');
+              
+              // Prepare message
+              const selectedNames = selectedDestinations.map(index => destinations[index].name);
+              const packageType = selectedPackageType === 'luxury' ? 'Luxury Package' : 'Economy Package';
+              
+              let message = `Hello! I would like to request a custom travel package with the following details:\n\n`;
+              message += `*Selected Destinations:*\n${selectedNames.join(', ')}\n\n`;
+              message += `*Package Type:* ${packageType}\n\n`;
+              message += `Please contact me with more information about this custom package.`;
+              const phoneNumber = '201556821607'; // الرقم الدولي بدون +
+
+              // Simulate loading delay (in real app, this would be immediate)
+              setTimeout(() => {
+                  loadingModal.classList.remove('show');
+                  confirmationModal.classList.add('show');
+                  
+                  // After confirmation, open WhatsApp (with delay for animation)
+                  setTimeout(() => {
+                      const encodedMessage = encodeURIComponent(message);
+                      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+                      
+                      // Close confirmation after a delay
+                      setTimeout(closeAllModals, 2000);
+                  }, 1500);
+              }, 2000);
+          }
+          
+          // Close all modals
+          function closeAllModals() {
+              document.querySelectorAll('.modal').forEach(modal => {
+                  modal.classList.remove('show');
+              });
+              document.body.style.overflow = '';
+          }
+          
+          // Event listeners
+          buildPackageBtn.addEventListener('click', openDestinationModal);
+          
+          nextToPackageBtn.addEventListener('click', openPackageModal);
+          
+          backToDestinationsBtn.addEventListener('click', backToDestinations);
+          
+          sendWhatsAppBtn.addEventListener('click', sendWhatsAppMessage);
+          
+          closeModalBtns.forEach(btn => {
+              btn.addEventListener('click', closeAllModals);
+          });
+          
+          // Package selection
+          document.querySelectorAll('.package-card').forEach(card => {
+              card.addEventListener('click', function() {
+                  document.querySelectorAll('.package-card').forEach(c => {
+                      c.classList.remove('selected');
+                  });
+                  this.classList.add('selected');
+                  selectedPackageType = this.dataset.type;
+              });
+          });
+          
+          // Close modal when clicking outside content
+          document.querySelectorAll('.modal').forEach(modal => {
+              modal.addEventListener('click', function(e) {
+                  if (e.target === modal) {
+                      closeAllModals();
+                  }
+              });
+          });
+          
+          // Keyboard navigation
+          document.addEventListener('keydown', function(e) {
+              if (e.key === 'Escape') {
+                  closeAllModals();
+              }
+          });
+      });
+  </script>
     <script>
       // Sand Particle Effect
       function createSandParticles() {
